@@ -4,8 +4,11 @@
 #include <string.h>
 #define MAX_LIMIT 20
 
+
 int password(int password_length)
 {
+
+	char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\"<>,.?/\\||";
 
 	printf("\t");
 
@@ -15,6 +18,25 @@ int password(int password_length)
 		{
 			printf("*");
 		}
+		printf("\n");
+		printf("\t");
+		
+		srand(time(NULL));
+		for (int i = 0; i < password_length; i++)
+		{
+			printf("%c", list[rand() % (sizeof list -1)]);
+		}
+
+		printf("\n");
+		printf("\t");
+
+		for (int i = 0; i < password_length; i++)
+		{
+			printf("*");
+		}
+
+		printf("\n");
+		
 	}
 	else
 	{
@@ -31,6 +53,7 @@ int main(void)
 {
 	char nameuser[MAX_LIMIT];
 	int password_length;
+
 	printf("Enter your name please\n");
 	//user authentification
 	scanf("%s", nameuser);
@@ -43,7 +66,6 @@ int main(void)
 	printf("\n");
 	printf("Please Enter the lenght of password desire\n");
 	scanf("%d", &password_length);
-
 	password(password_length);
 	return(0);
 
